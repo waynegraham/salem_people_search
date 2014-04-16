@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140416175103) do
+ActiveRecord::Schema.define(version: 20140416194620) do
 
   create_table "cases", force: true do |t|
     t.string   "case_id"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20140416175103) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "cases", ["doc_id"], name: "index_cases_on_doc_id"
 
   create_table "names", force: true do |t|
     t.string   "key"

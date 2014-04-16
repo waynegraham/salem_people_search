@@ -17,15 +17,30 @@ namespace :convert do
     @doc ||= Nokogiri::XML(File.open('./lib/assets/BoySalCombined.xml'))
   end
 
+  def find_person(key)
+    Name.find_by_key(key)
+  end
+
   task :people_documents => :environment do
     parse_file
 
     court_docs = get_docs
 
     court_docs.each do |court_doc|
-      people = court_doc.xpath('.//name[@type="person"]')
 
-      puts people
+      court_doc.xpath('./div2').each do |doc|
+        doc_id = doc.attr('id')
+
+
+        c = Case.find_by doc_id:  doc_id
+
+        court_doc.xpath('.//name[@type="person"]').each do |name|
+           key = name.attr('key')
+           n = Name.find_by_key key
+           puts "#{c.id} | #{n.id}" unless n.nil?
+        end
+      end
+
     end
 
 
