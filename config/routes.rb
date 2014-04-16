@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :mentions
+
   resources :cases
 
   resources :names
