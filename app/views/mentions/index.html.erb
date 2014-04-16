@@ -1,5 +1,5 @@
 <h1>Listing mentions</h1>
-
+<%= will_paginate @mentions %>
 <table>
   <thead>
     <tr>
@@ -12,8 +12,8 @@
   <tbody>
     <% @mentions.each do |mention| %>
       <tr>
-        <td><%= mention.case_id %></td>
-        <td><%= mention.name_id %></td>
+        <td><%= mention.case.case_id %></td>
+        <td><%= mention.name.name %></td>
         <td><%= link_to 'Show', mention %></td>
         <td><%= link_to 'Edit', edit_mention_path(mention) %></td>
         <td><%= link_to 'Destroy', mention, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Mention', new_mention_path %>
+<%= will_paginate @mentions %>

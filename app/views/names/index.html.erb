@@ -1,6 +1,6 @@
 <h1>Names in Salem Witch Trials Documents</h1>
 
 <% @names.each do |name| %>
-  <p><%= name.name %> (<%= name.key %>)</p>
+  <p><%= link_to name.name, name %> (<%= name.key %>)</p>
 <% end %>
 

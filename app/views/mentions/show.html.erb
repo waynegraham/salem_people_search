@@ -1,14 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<h2>
+  <%= @mention.name.name %>
+</h2>
+
 <p>
   <strong>Case:</strong>
-  <%= @mention.case_id %>
+  <%= @mention.case.content %>
 </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @mention.name_id %>
-</p>
-
-<%= link_to 'Edit', edit_mention_path(@mention) %> |
-<%= link_to 'Back', mentions_path %>

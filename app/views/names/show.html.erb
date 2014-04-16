@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Key:</strong>
-  <%= @name.key %>
-</p>
+<h2><%= @name.name %> (<%= @name.key %>)</h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @name.name %>
-</p>
+<p>Case Mentions: <%= @name.mentions.count %></p>
 
-<%= link_to 'Edit', edit_name_path(@name) %> |
-<%= link_to 'Back', names_path %>
+<% @name.mentions.each do |mention| %>
+  
+  <p>
+  <strong>Case: (<%= mention.case.doc_id %>)</strong>
+    <%= mention.case.content %>
+  </p>
+  <p>
+<% end %>

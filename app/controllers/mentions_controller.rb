@@ -4,7 +4,8 @@ class MentionsController < ApplicationController
   # GET /mentions
   # GET /mentions.json
   def index
-    @mentions = Mention.all
+    @mentions = Mention.paginate(:page => params[:page])
+    #@mentions = Mention.all
   end
 
   # GET /mentions/1
