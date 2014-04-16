@@ -1,0 +1,25 @@
+<%= form_for(@mention) do |f| %>
+  <% if @mention.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mention.errors.count, "error") %> prohibited this mention from being saved:</h2>
+
+      <ul>
+      <% @mention.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :case_id %><br>
+    <%= f.number_field :case_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name_id %><br>
+    <%= f.number_field :name_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
