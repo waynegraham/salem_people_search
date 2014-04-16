@@ -17,13 +17,38 @@ namespace :convert do
     @doc ||= Nokogiri::XML(File.open('./lib/assets/BoySalCombined.xml'))
   end
 
-  task :documents => :environment do 
+  task :people_documents => :environment do
     parse_file
 
     court_docs = get_docs
 
     court_docs.each do |court_doc|
-      puts court_doc.attr('id')
+      people = court_doc.xpath('.//name[@type="person"]')
+
+      puts people
+    end
+
+
+  end
+
+  task :documents => :environment do
+    parse_file
+
+    court_docs = get_docs
+
+    court_docs.each do |court_doc|
+       case_id = court_doc.attr('id')
+
+       court_doc.xpath('./div2').each do |doc|
+
+         Case.create(
+          case_id: case_id,
+          doc_id: doc.attr('id'),
+          doc_type: doc.attr('type'),
+          content: doc.text
+         )
+        puts "Adding document #{doc.attr('id')}"
+       end
     end
 
   end
@@ -42,7 +67,7 @@ namespace :convert do
     end
   end
 
-  task :all => [:environment, :people] do
+  task :all => [:environment, :people, :documents] do
 
   end
 end

@@ -12,20 +12,15 @@
   </thead>
 
   <tbody>
-    <% @cases.each do |case| %>
+    <% @cases.each do |c| %>
       <tr>
-        <td><%= case.case_id %></td>
-        <td><%= case.doc_id %></td>
-        <td><%= case.type %></td>
-        <td><%= case.content %></td>
-        <td><%= link_to 'Show', case %></td>
-        <td><%= link_to 'Edit', edit_case_path(case) %></td>
-        <td><%= link_to 'Destroy', case, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= c.case_id %></td>
+        <td><%= c.doc_id %></td>
+        <td><%= c.doc_type %></td>
+        <td><%= c.content %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Case', new_case_path %>

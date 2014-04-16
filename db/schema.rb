@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140416165647) do
+ActiveRecord::Schema.define(version: 20140416175103) do
+
+  create_table "cases", force: true do |t|
+    t.string   "case_id"
+    t.string   "doc_id"
+    t.string   "doc_type"
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "names", force: true do |t|
     t.string   "key"
