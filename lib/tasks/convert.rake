@@ -31,13 +31,16 @@ namespace :convert do
       court_doc.xpath('./div2').each do |doc|
         doc_id = doc.attr('id')
 
-
         c = Case.find_by doc_id:  doc_id
 
         court_doc.xpath('.//name[@type="person"]').each do |name|
            key = name.attr('key')
            n = Name.find_by_key key
-           puts "#{c.id} | #{n.id}" unless n.nil?
+           Mention.create(
+              case_id: c.id,
+              name_id: n.id
+           ) unless n.nil?
+           #puts "#{c.id} | #{n.id}" unless n.nil?
         end
       end
 
