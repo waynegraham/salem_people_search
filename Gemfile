@@ -33,6 +33,15 @@ gem "thin"
 
 gem "will_paginate"
 
+group :development do
+  gem "rack-livereload"
+  gem "guard"
+  gem "guard-bundler"
+  gem 'guard-livereload'
+  gem 'rb-fsevent', :require => false
+  gem 'sprockets_better_errors'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
