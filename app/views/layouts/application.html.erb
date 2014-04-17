@@ -31,6 +31,13 @@
         <li><%= link_to 'People', names_path %></li>
         <li><%= link_to 'Cases', cases_path %></li>
       </ul>
+
+      <%= form_tag(names_path, method: "get", class: "navbar-form navbar-right") do %>
+        <div class="form-group">
+          <input type="text" name="q" value="<%= params[:q]%>" placeholder="Search Names" class="form-control">
+          <%= submit_tag("Search", class: "btn btn-success") %>
+        </div>
+      <% end %>
     </div><!--/.nav-collapse -->
   </div>
 </div>

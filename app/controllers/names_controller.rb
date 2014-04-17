@@ -4,7 +4,8 @@ class NamesController < ApplicationController
   # GET /names
   # GET /names.json
   def index
-    @names = Name.all
+    #@names = Name.all
+    @names = Name.search(params[:q])
   end
 
   # GET /names/1
@@ -64,7 +65,7 @@ class NamesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_name
-      @name = Name.find(params[:id])
+      @name = Name.includes(:mentions).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

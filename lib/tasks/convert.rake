@@ -40,6 +40,7 @@ namespace :convert do
               case_id: c.id,
               name_id: n.id
            ) unless n.nil?
+           "adding mention for #{c.doc_id}"
            #puts "#{c.id} | #{n.id}" unless n.nil?
         end
       end
@@ -63,7 +64,7 @@ namespace :convert do
           case_id: case_id,
           doc_id: doc.attr('id'),
           doc_type: doc.attr('type'),
-          content: doc.text
+          content: doc
          )
         puts "Adding document #{doc.attr('id')}"
        end
@@ -85,7 +86,7 @@ namespace :convert do
     end
   end
 
-  task :all => [:environment, :people, :documents] do
+  task :all => [:environment, :people, :documents, :people_documents] do
 
   end
 end
