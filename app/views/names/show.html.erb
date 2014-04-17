@@ -5,10 +5,11 @@
 <p>Case Mentions: <%= @name.mentions.count %></p>
 
 <% @name.mentions.each do |mention| %>
-  
+  <% case_title = "Case #{mention.case.case_id}" %>
+  <h3><%= link_to case_title, "http://salem.lib.virginia.edu/texts/tei/BoySalCombined?div_id=#{mention.case.doc_id}&chapter_id=#{mention.case.doc_id}&term=#{@name.name}" %></h3>
+  <p class="case-meta"><strong>Document:</strong> <%= mention.case.doc_id %> | <strong>Type:</strong> <%= mention.case.doc_type %></p>
   <p>
-  <strong>Case: (<%= mention.case.doc_id %>)</strong>
-    <%= mention.case.content %>
+     <%= mention.case.content %>
   </p>
   <p>
 <% end %>

@@ -39,7 +39,6 @@ group :development do
   gem "guard-bundler"
   gem 'guard-livereload'
   gem 'rb-fsevent', :require => false
-  gem 'sprockets_better_errors'
 end
 
 # Use ActiveModel has_secure_password
