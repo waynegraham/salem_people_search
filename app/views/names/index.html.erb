@@ -1,6 +1,15 @@
 <h1>Names in Salem Witch Trials Documents</h1>
 
+<div class="flickr_pagination">
+  <%= will_paginate @names %>
+</div>
+
 <% @names.each do |name| %>
   <p><%= link_to name.name, name %> (<%= name.key %>) <%#= pluralize(name.mentions.count, "mentions") %></p>
 <% end %>
+
+<div class="flickr_pagination">
+  <%= will_paginate @names %>
+</div>
+
 

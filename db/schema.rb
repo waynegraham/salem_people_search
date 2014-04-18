@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140416200722) do
+ActiveRecord::Schema.define(version: 20140417185601) do
 
   create_table "cases", force: true do |t|
     t.string   "case_id"
     t.string   "doc_id"
     t.string   "doc_type"
-    t.string   "content"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "cases", ["doc_id"], name: "index_cases_on_doc_id"
+  add_index "cases", ["doc_id"], name: "index_cases_on_doc_id", using: :btree
 
   create_table "mentions", force: true do |t|
     t.integer  "case_id"

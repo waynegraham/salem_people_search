@@ -4,7 +4,7 @@ class CasesController < ApplicationController
   # GET /cases
   # GET /cases.json
   def index
-    @cases = Case.all
+    @cases = Case.paginate(:page => params[:page])
   end
 
   # GET /cases/1
@@ -64,7 +64,7 @@ class CasesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_case
-      @case = Case.find(params[:id])
+      @case = Case.includes(:names).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

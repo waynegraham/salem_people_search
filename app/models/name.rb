@@ -4,8 +4,7 @@ class Name < ActiveRecord::Base
 
   def self.search(search)
     if(search)
-      self.where("name LIKE ?", "%#{search}")
-      #find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+      self.where("name LIKE ?", "%#{search}%")
     else
       self.all
     end

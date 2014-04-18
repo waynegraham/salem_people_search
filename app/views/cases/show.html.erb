@@ -12,13 +12,14 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @case.type %>
+  <%= @case.doc_type %>
 </p>
 
 <p>
   <strong>Content:</strong>
   <%= @case.content %>
-</p>
+  </p>
 
-<%= link_to 'Edit', edit_case_path(@case) %> |
-<%= link_to 'Back', cases_path %>
+<% @case.names.each do |name| %>
+  <p><%= link_to(name.name, name) %></p>
+<% end %>

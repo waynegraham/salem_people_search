@@ -5,7 +5,7 @@ class NamesController < ApplicationController
   # GET /names.json
   def index
     #@names = Name.all
-    @names = Name.search(params[:q])
+    @names = Name.search(params[:q]).paginate(:page => params[:page])
   end
 
   # GET /names/1

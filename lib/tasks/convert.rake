@@ -64,7 +64,7 @@ namespace :convert do
           case_id: case_id,
           doc_id: doc.attr('id'),
           doc_type: doc.attr('type'),
-          content: doc
+          content: doc.to_xml
          )
         puts "Adding document #{doc.attr('id')}"
        end
