@@ -17,7 +17,7 @@
 
 <p>
   <strong>Content:</strong>
-  <%= @case.content %>
+  <%= @case.content.html_safe %>
   </p>
 
 <% @case.names.each do |name| %>

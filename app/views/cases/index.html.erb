@@ -6,7 +6,7 @@
 
 <% @cases.each do |c| %>
   <h2><%= link_to(c.doc_id, c) %> (from Case <%= c.case_id %>) - <%= c.doc_type %></h2>
-  <p><%= truncate(c.content, length: 500) %></p>
+  <p><%= truncate(c.content.html_safe, length: 500) %></p>
 <% end %>
 
 <div class="flickr_pagination">
