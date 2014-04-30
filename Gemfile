@@ -36,6 +36,7 @@ gem "will_paginate"
 
 gem "mysql2"
 
+gem 'rails_12factor', group: :production
 gem 'dotenv-rails', :groups => [:development, :test]
 
 group :development do
